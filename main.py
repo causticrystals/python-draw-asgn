@@ -23,6 +23,10 @@ def draw_stickman(color, x, y) : #(230, 100)
     pygame.draw.circle(screen, color, (x + 50, y + 70), 5)
     pygame.draw.circle(screen, color, (x + 90, y + 70), 5)
 
+def draw_platform(start, end, w, color, color2) :
+    #top
+    pygame.draw.line(screen, color, start, end, w)
+
 
 
 # Open canvas
@@ -32,8 +36,7 @@ while run:
     screen.fill("white")
 
     #draw shapes
-    draw_stickman("crimson", 230, 100)
-    draw_stickman("darkgoldenrod2", 370, 100)
+
 
     for event in pygame.event.get(): 
         #when user clicks X on window so the window isnt stuck open
