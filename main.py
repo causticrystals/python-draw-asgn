@@ -6,27 +6,29 @@ pygame.init()
 SCREEN_SIZE = (900, 700)
 screen = pygame.display.set_mode(SCREEN_SIZE)
 
-# Draw stickman function
-def draw_stickman(color, x, y) : #(230, 100)
+# Draw graphics functions
+def draw_stickman(color, x, y) :
     #head
-    pygame.draw.circle(screen, color, (x + 70, y + 80), 50, 3)
+    pygame.draw.circle(screen, color, (x + 20, y + 20), 20, 3)
     #body
-    pygame.draw.line(screen, color, (x + 70, y + 130), (x + 70, y + 250), 3)
+    pygame.draw.line(screen, color, (x + 20, y + 40), (x + 20, y + 80), 3)
     #arms
-    pygame.draw.line(screen, color, (x + 70, y + 140), (x, y + 200), 3)
-    pygame.draw.line(screen, color, (x + 70, y + 140), (x + 130, y + 200), 3)
+    pygame.draw.line(screen, color, (x + 20, y + 50), (x, y + 70), 3)
+    pygame.draw.line(screen, color, (x + 20, y + 50), (x + 40, y + 70), 3)
     #legs
-    pygame.draw.line(screen, color, (x + 70, y + 250), (x + 30, y + 330), 3)
-    pygame.draw.line(screen, color, (x + 70, y + 250), (x + 110, y + 330), 3)
+    pygame.draw.line(screen, color, (x + 20, y + 80), (x, y + 110), 3)
+    pygame.draw.line(screen, color, (x + 20, y + 80), (x + 40, y + 110), 3)
     #face
-    pygame.draw.arc(screen, color, (x + 45, y + 60, 50 ,50), 3.14, 0, width = 3)
-    pygame.draw.circle(screen, color, (x + 50, y + 70), 5)
-    pygame.draw.circle(screen, color, (x + 90, y + 70), 5)
+    pygame.draw.arc(screen, color, (x + 10, y + 20, 20 ,10), 3.14, 0, width = 3)
+    pygame.draw.circle(screen, color, (x + 10, y + 20), 3)
+    pygame.draw.circle(screen, color, (x + 30, y + 20), 3)
 
-def draw_platform(start, end, w, color, color2) :
+def draw_platform(color, color2, x, y, width, height) :
+    #bottom
+    pygame.draw.line(screen, color2, (x, y + 8), (x + width, y + 8), height)
     #top
-    pygame.draw.line(screen, color, start, end, w)
-
+    pygame.draw.line(screen, color, (x, y), (x + width, y), 6)
+    
 
 
 # Open canvas
@@ -36,7 +38,7 @@ while run:
     screen.fill("white")
 
     #draw shapes
-
+    draw_stickman("darkorchid", 600, 500)
 
     for event in pygame.event.get(): 
         #when user clicks X on window so the window isnt stuck open
